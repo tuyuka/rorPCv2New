@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Search for Users by First or Last Name, ParentCorps ID or Position</h2>
+
+<%= form_tag(users_path, :method => "Get", id: "search-form") do %>
+    <%= text_field_tag :search_user, params[:search_user], placeholder: "Search Users by First or Last Name or ID:" %>
+    <%= submit_tag "Search", :name=> nil %>
+<% end %>
+<p>
+
+<table id="table_show_leaders" class="display" cellpadding="5" border="1" cellspacing="0"  frame="box" width="300">
+<thead>
+    <tr>
+      <th>ParentCorps ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Site</th>
+      <th>Title</th>
+      <th>Borough</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.pc_id, edit_user_path(user) %></td>
+        <td><%= link_to user.first_name, edit_user_path(user) %></td>
+        <td><%= link_to user.last_name, edit_user_path(user) %></td>
+        <td><%= link_to user.site, edit_user_path(user) %></td>
+        <td><%= link_to user.title, edit_user_path(user) %></td>
+        <td><%= link_to user.borough, edit_user_path(user) %></td>
+        <td><%= user.comments %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+
+

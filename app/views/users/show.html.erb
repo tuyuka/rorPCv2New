@@ -1,0 +1,20 @@
+<H1>User</h1>
+
+<table id="table_show_leaders" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#9370db" frame="box"  width="300">
+  <thead>
+  <tr>
+    <th>Data Collection Element</th>
+    <th>Answer</th>
+  </tr>
+  <tbody>
+  <tr bgcolor="ffffff"><td><b>ParentCorps ID</b></td>	<td>   <b><b><b><%=@user.pc_id %></td><tr>
+  <tr bgcolor='cccccc'><td><b>First Name</b></td>		<td>   <b><b><b><%=@user.first_name %></td><tr>
+  <tr bgcolor='cccccc'><td><b>Last Name</b></td>		<td>   <b><b><b><%=@user.last_name %></td><tr>
+  <tr bgcolor='cccccc'><td><b>Position</b></td>	        <td>   <b><b><b><%=@user.title  %></td><tr>
+  <tr bgcolor='cccccc'><td><b>Site</b></td>		        <td>   <b><b><b><%=@user.sites %></td><tr>
+  </tbody>
+</table>
+
+
+<hr size="2" noshade color="Grey" width="300" align="left">
+<%= link_to 'Edit User', edit_user_path(@user) %> |

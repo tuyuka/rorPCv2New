@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Coaches</h1>
+
+<h2>Search for Coaches by First or Last Name, ParentCorps ID</h2>
+
+<%= form_tag(coaches_path, :method => "Get", id: "search-form") do %>
+    <%= text_field_tag :search_coach, params[:search_coach], placeholder: "Search Coaches by First or Last Name or ID:" %>
+    <%= submit_tag "Search", :name=> nil %>
+<% end %>
+<p>
+
+
+
+<table id="table_show_coaches" class="display" cellpadding="5" border="1" cellspacing="0" frame="box" width="300">
+  <thead>
+  </tr>
+  </thead>
+  <tbody>
+  <% @coaches.each do |coach| %>
+      <tr bgcolor="cccccc"><td><b><%= "Coach ID"      %></b></td><td>   <b><b><b><%= link_to coach.coach_gid, edit_coach_path(coach)        %></td><tr>
+      <tr bgcolor="ffffff"><td><b><%= "First Name"    %></b></td><td>   <b><b><b><%= link_to coach.first_name, edit_coach_path(coach)   %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= "Last Name"     %></b></td><td>   <b><b><b><%= link_to coach.last_name, edit_coach_path(coach)    %></td><tr>
+      <tr bgcolor='ffffff'><td><b><%= "Site ID"       %></b></td><td>   <b><b><b><%= link_to coach.site, edit_coach_path(coach)    %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= "Email"         %></b></td><td>   <b><b><b><%= link_to coach.email, edit_coach_path(coach)  %></td><tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Coach', new_coach_path %>
+

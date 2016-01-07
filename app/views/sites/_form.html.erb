@@ -1,0 +1,42 @@
+<%= form_for(@site) do |f| %>
+  <% if @site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @site.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <table id="table_show_leaders" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#9370db" frame="box" width="300">
+      <thead>
+      </thead>
+
+      <tbody>
+
+
+      <tbody>
+      <tr bgcolor='cccccc'><td><b><%= f.label :given_site_id,  	"Site ID"           %></b></td><td>   <b><b><b><%=f.text_field :given_site_id   %></td><tr>
+      <tr bgcolor='ffffff'><td><b><%= f.label :school_name,  		"Site Name"         %></b></td><td>   <b><b><b><%=f.text_field :school_name     %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= f.label :building_number, "Building Number"   %></b></td><td>   <b><b><b><%=f.text_field :building_number %></td><tr>
+      <tr bgcolor="ffffff"><td><b><%= f.label :street,        	"Street"            %></b></td><td>   <b><b><b><%=f.text_field :street          %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= f.label :borough,        	"Borough"           %></b></td><td>   <b><b><b><%=f.text_field :borough         %></td><tr>
+      <tr bgcolor='ffffff'><td><b><%= f.label :phone,        		"Phone Number"      %></b></td><td>   <b><b><b><%=f.text_field :phone           %></td><tr>
+      <tr bgcolor='cccccc'><td><b><%= f.label :zipcode,        	"Zipcode"           %></b></td><td>   <b><b><b><%=f.text_field :zipcode         %></td><tr>
+      <tr bgcolor='ffffff'><td><b><%= f.label :school_url,  		"Site URL"          %></b></td><td>   <b><b><b><%=f.text_field :school_url      %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= f.label :comments,  		  "Comments"          %></b></td><td>   <b><b><b><%=f.text_field :comments        %></td><tr>
+
+
+      </tbody>
+    </table>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

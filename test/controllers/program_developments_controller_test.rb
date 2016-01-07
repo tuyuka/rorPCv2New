@@ -1,0 +1,49 @@
+require 'test_helper'
+
+class ProgramDevelopmentsControllerTest < ActionController::TestCase
+  setup do
+    @program_development = program_developments(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:program_developments)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create program_development" do
+    assert_difference('ProgramDevelopment.count') do
+      post :create, program_development: { CreativeArts_1: @program_development.CreativeArts_1, CreativeArts_2: @program_development.CreativeArts_2, CreativeArts_3: @program_development.CreativeArts_3, CreativeArts_4: @program_development.CreativeArts_4, CreativeArts_5: @program_development.CreativeArts_5, CreativeArts_6: @program_development.CreativeArts_6, FriendsSchool_1: @program_development.FriendsSchool_1, FriendsSchool_2: @program_development.FriendsSchool_2, FriendsSchool_3: @program_development.FriendsSchool_3, FriendsSchool_4: @program_development.FriendsSchool_4, FriendsSchool_5: @program_development.FriendsSchool_5, FriendsSchool_6: @program_development.FriendsSchool_6, PCFUNDay1_1: @program_development.PCFUNDay1_1, PCFUNDay1_2: @program_development.PCFUNDay1_2, PCFUNDay1_3: @program_development.PCFUNDay1_3, PCFUNDay1_4: @program_development.PCFUNDay1_4, PCFUNDay1_5: @program_development.PCFUNDay1_5, PCFUNDay1_6: @program_development.PCFUNDay1_6, PCFUNDay2_1: @program_development.PCFUNDay2_1, PCFUNDay2_2: @program_development.PCFUNDay2_2, PCFUNDay2_3: @program_development.PCFUNDay2_3, PCFUNDay2_4: @program_development.PCFUNDay2_4, PCFUNDay2_5: @program_development.PCFUNDay2_5, PCFUNDay2_6: @program_development.PCFUNDay2_6, PCFUNDay3_1: @program_development.PCFUNDay3_1, PCFUNDay3_2: @program_development.PCFUNDay3_2, PCFUNDay3_3: @program_development.PCFUNDay3_3, PCFUNDay3_4: @program_development.PCFUNDay3_4, PCFUNDay3_5: @program_development.PCFUNDay3_5, PCFUNDay3_6: @program_development.PCFUNDay3_6, PCFUNDay4_1: @program_development.PCFUNDay4_1, PCFUNDay4_2: @program_development.PCFUNDay4_2, PCFUNDay4_3: @program_development.PCFUNDay4_3, PCFUNDay4_4: @program_development.PCFUNDay4_4, PCFUNDay4_5: @program_development.PCFUNDay4_5, PCFUNDay4_6: @program_development.PCFUNDay4_6, ParentingPramDay1_5: @program_development.ParentingPramDay1_5, ParentingProgramDay1_1: @program_development.ParentingProgramDay1_1, ParentingProgramDay1_2: @program_development.ParentingProgramDay1_2, ParentingProgramDay1_3: @program_development.ParentingProgramDay1_3, ParentingProgramDay1_4: @program_development.ParentingProgramDay1_4, ParentingProgramDay1_6: @program_development.ParentingProgramDay1_6, ParentingProgramDay2_1: @program_development.ParentingProgramDay2_1, ParentingProgramDay2_2: @program_development.ParentingProgramDay2_2, ParentingProgramDay2_3: @program_development.ParentingProgramDay2_3, ParentingProgramDay2_4: @program_development.ParentingProgramDay2_4, ParentingProgramDay2_5: @program_development.ParentingProgramDay2_5, ParentingProgramDay2_6: @program_development.ParentingProgramDay2_6, ParentingProgramDay3_1: @program_development.ParentingProgramDay3_1, ParentingProgramDay3_2: @program_development.ParentingProgramDay3_2, ParentingProgramDay3_3: @program_development.ParentingProgramDay3_3, ParentingProgramDay3_4: @program_development.ParentingProgramDay3_4, ParentingProgramDay3_5: @program_development.ParentingProgramDay3_5, ParentingProgramDay3_6: @program_development.ParentingProgramDay3_6, ParentingProgramRefresher_1: @program_development.ParentingProgramRefresher_1, ParentingProgramRefresher_2: @program_development.ParentingProgramRefresher_2, ParentingProgramRefresher_3: @program_development.ParentingProgramRefresher_3, ParentingProgramRefresher_4: @program_development.ParentingProgramRefresher_4, ParentingProgramRefresher_5: @program_development.ParentingProgramRefresher_5, ParentingProgramRefresher_6: @program_development.ParentingProgramRefresher_6, PrincipalPCFUNDay1_1: @program_development.PrincipalPCFUNDay1_1, PrincipalPCFUNDay1_2: @program_development.PrincipalPCFUNDay1_2, PrincipalPCFUNDay1_3: @program_development.PrincipalPCFUNDay1_3, PrincipalPCFUNDay1_4: @program_development.PrincipalPCFUNDay1_4, PrincipalPCFUNDay1_5: @program_development.PrincipalPCFUNDay1_5, PrincipalPCFUNDay1_6: @program_development.PrincipalPCFUNDay1_6, PrincipalPCFUNDay2_1: @program_development.PrincipalPCFUNDay2_1, PrincipalPCFUNDay2_2: @program_development.PrincipalPCFUNDay2_2, PrincipalPCFUNDay2_3: @program_development.PrincipalPCFUNDay2_3, PrincipalPCFUNDay2_4: @program_development.PrincipalPCFUNDay2_4, PrincipalPCFUNDay2_5: @program_development.PrincipalPCFUNDay2_5, PrincipalPCFUNDay2_6: @program_development.PrincipalPCFUNDay2_6, leader_id: @program_development.leader_id }
+    end
+
+    assert_redirected_to program_development_path(assigns(:program_development))
+  end
+
+  test "should show program_development" do
+    get :show, id: @program_development
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @program_development
+    assert_response :success
+  end
+
+  test "should update program_development" do
+    patch :update, id: @program_development, program_development: { CreativeArts_1: @program_development.CreativeArts_1, CreativeArts_2: @program_development.CreativeArts_2, CreativeArts_3: @program_development.CreativeArts_3, CreativeArts_4: @program_development.CreativeArts_4, CreativeArts_5: @program_development.CreativeArts_5, CreativeArts_6: @program_development.CreativeArts_6, FriendsSchool_1: @program_development.FriendsSchool_1, FriendsSchool_2: @program_development.FriendsSchool_2, FriendsSchool_3: @program_development.FriendsSchool_3, FriendsSchool_4: @program_development.FriendsSchool_4, FriendsSchool_5: @program_development.FriendsSchool_5, FriendsSchool_6: @program_development.FriendsSchool_6, PCFUNDay1_1: @program_development.PCFUNDay1_1, PCFUNDay1_2: @program_development.PCFUNDay1_2, PCFUNDay1_3: @program_development.PCFUNDay1_3, PCFUNDay1_4: @program_development.PCFUNDay1_4, PCFUNDay1_5: @program_development.PCFUNDay1_5, PCFUNDay1_6: @program_development.PCFUNDay1_6, PCFUNDay2_1: @program_development.PCFUNDay2_1, PCFUNDay2_2: @program_development.PCFUNDay2_2, PCFUNDay2_3: @program_development.PCFUNDay2_3, PCFUNDay2_4: @program_development.PCFUNDay2_4, PCFUNDay2_5: @program_development.PCFUNDay2_5, PCFUNDay2_6: @program_development.PCFUNDay2_6, PCFUNDay3_1: @program_development.PCFUNDay3_1, PCFUNDay3_2: @program_development.PCFUNDay3_2, PCFUNDay3_3: @program_development.PCFUNDay3_3, PCFUNDay3_4: @program_development.PCFUNDay3_4, PCFUNDay3_5: @program_development.PCFUNDay3_5, PCFUNDay3_6: @program_development.PCFUNDay3_6, PCFUNDay4_1: @program_development.PCFUNDay4_1, PCFUNDay4_2: @program_development.PCFUNDay4_2, PCFUNDay4_3: @program_development.PCFUNDay4_3, PCFUNDay4_4: @program_development.PCFUNDay4_4, PCFUNDay4_5: @program_development.PCFUNDay4_5, PCFUNDay4_6: @program_development.PCFUNDay4_6, ParentingPramDay1_5: @program_development.ParentingPramDay1_5, ParentingProgramDay1_1: @program_development.ParentingProgramDay1_1, ParentingProgramDay1_2: @program_development.ParentingProgramDay1_2, ParentingProgramDay1_3: @program_development.ParentingProgramDay1_3, ParentingProgramDay1_4: @program_development.ParentingProgramDay1_4, ParentingProgramDay1_6: @program_development.ParentingProgramDay1_6, ParentingProgramDay2_1: @program_development.ParentingProgramDay2_1, ParentingProgramDay2_2: @program_development.ParentingProgramDay2_2, ParentingProgramDay2_3: @program_development.ParentingProgramDay2_3, ParentingProgramDay2_4: @program_development.ParentingProgramDay2_4, ParentingProgramDay2_5: @program_development.ParentingProgramDay2_5, ParentingProgramDay2_6: @program_development.ParentingProgramDay2_6, ParentingProgramDay3_1: @program_development.ParentingProgramDay3_1, ParentingProgramDay3_2: @program_development.ParentingProgramDay3_2, ParentingProgramDay3_3: @program_development.ParentingProgramDay3_3, ParentingProgramDay3_4: @program_development.ParentingProgramDay3_4, ParentingProgramDay3_5: @program_development.ParentingProgramDay3_5, ParentingProgramDay3_6: @program_development.ParentingProgramDay3_6, ParentingProgramRefresher_1: @program_development.ParentingProgramRefresher_1, ParentingProgramRefresher_2: @program_development.ParentingProgramRefresher_2, ParentingProgramRefresher_3: @program_development.ParentingProgramRefresher_3, ParentingProgramRefresher_4: @program_development.ParentingProgramRefresher_4, ParentingProgramRefresher_5: @program_development.ParentingProgramRefresher_5, ParentingProgramRefresher_6: @program_development.ParentingProgramRefresher_6, PrincipalPCFUNDay1_1: @program_development.PrincipalPCFUNDay1_1, PrincipalPCFUNDay1_2: @program_development.PrincipalPCFUNDay1_2, PrincipalPCFUNDay1_3: @program_development.PrincipalPCFUNDay1_3, PrincipalPCFUNDay1_4: @program_development.PrincipalPCFUNDay1_4, PrincipalPCFUNDay1_5: @program_development.PrincipalPCFUNDay1_5, PrincipalPCFUNDay1_6: @program_development.PrincipalPCFUNDay1_6, PrincipalPCFUNDay2_1: @program_development.PrincipalPCFUNDay2_1, PrincipalPCFUNDay2_2: @program_development.PrincipalPCFUNDay2_2, PrincipalPCFUNDay2_3: @program_development.PrincipalPCFUNDay2_3, PrincipalPCFUNDay2_4: @program_development.PrincipalPCFUNDay2_4, PrincipalPCFUNDay2_5: @program_development.PrincipalPCFUNDay2_5, PrincipalPCFUNDay2_6: @program_development.PrincipalPCFUNDay2_6, leader_id: @program_development.leader_id }
+    assert_redirected_to program_development_path(assigns(:program_development))
+  end
+
+  test "should destroy program_development" do
+    assert_difference('ProgramDevelopment.count', -1) do
+      delete :destroy, id: @program_development
+    end
+
+    assert_redirected_to program_developments_path
+  end
+end

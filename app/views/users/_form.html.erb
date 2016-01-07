@@ -1,0 +1,142 @@
+<head>
+<meta charset="utf-8">
+  <title>jQuery UI Accordion - Collapse content</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  });
+</script>
+
+
+
+</head>
+
+<body>
+
+<div id="accordion">
+  <h3>Users</h3>
+  <div>
+    <%= form_for(@user) do |f| %>
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <Div>
+          <table id="table_show_leaders" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#9370db" frame="box" width="300">
+            <thead>
+            <tr></tr>
+            </thead>
+            <tbody>
+            <tr bgcolor="ffffff"><td><b><%= f.label :pc_id,  		        "ParentCorps ID"        %></b></td><td>   <b><b><b><%=f.text_field :pc_id             %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= f.label :first_name,  		  "First Name"            %></b></td><td>   <b><b><b><%=f.text_field :first_name        %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= f.label :last_name,  		    "Last Name"             %></b></td><td>   <b><b><b><%=f.text_field :last_name         %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= f.label :title,    		      "Position"              %></b></td><td>   <b><b><b><%=f.collection_select(:title,      Title.all,  :position,  :position, :include_blank=>true) %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= f.label :title_other_grade, "Other Teacher Grade"   %></b></td><td>   <b><b><b><%=f.text_field :title_other_grade %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= f.label :first_year,        "First PC Year"         %></b></td><td>   <b><b><b><%=f.collection_select(:first_year, Cycle.all,   :id,  :cycle, :include_blank=>true) %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= f.label :cohort,    		    "Cohort"                %></b></td><td>   <b><b><b><%=f.collection_select(:cohort,     Cohort.all,  :id,  :name, :include_blank=>true) %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= f.label :site,  		        "Site"                  %></b></td><td>   <b><b><b><%=f.collection_select(:site,       Site.all,    :school,  :school, :include_blank=>true) %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= f.label :borough,    		    "Borough"               %></b></td><td>   <b><b><b><%=f.collection_select(:borough,    Borough.all,  :borough,  :borough, :include_blank=>true) %></td><tr>
+            <tr bgcolor="cccccc"><td><b><%= f.label :comments,  		    "Comments"              %></b></td><td>   <b><b><b><%=f.text_field :comments          %></td><tr>
+
+            </tbody>
+          </table>
+        </div>
+  </div>
+
+
+
+  <h3>Phone Contact</h3>
+    <div>
+      <%= f.fields_for :phones do |p|  %>
+          <table id="table_show_caregivers" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#339999" frame="box" width="300">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr bgcolor='cccccc'><td><b><%= p.label :phone_type,  	"Phone Type"    %></b></td><td>   <b><b><b><%==p.collection_select(:phone_type,  PhoneType.all,  :name,  :name, :include_blank=>true) %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= p.label :phone_number,  	"Number"        %></b></td><td>   <b><b><b><%==p.text_field :phone_number   %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= p.label :primary,    	    "Primary"       %></b></td><td>   <b><b><b><%==p.collection_select(:primary,  Affirmation.all,  :id,  :name, :include_blank=>true) %></td><tr>
+            <tr bgcolor='ffffff'><td><b><%= p.label :comments,    	"Comments"      %></b></td><td>   <b><b><b><%==p.text_field :comments %></td><tr>
+
+            </tbody>
+          </table>
+      <% end %>
+  </div>
+
+  <h3>Email Contact</h3>
+  <div>
+    <%= f.fields_for :emails do |e|  %>
+        <div>
+          <table id="table_show_email_acc" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#7A5230" frame="box" width="300">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <tr bgcolor='ffffff'><td><b><%= e.label :email_account,  	"Email Address"     %></b></td><td>   <b><b><b><%==e.text_field :email_account   %></td><tr>
+            <tr bgcolor='cccccc'><td><b><%= e.label :primary,    	    "Primary"           %></b></td><td>   <b><b><b><%==e.collection_select(:primary,  Affirmation.all,  :id,  :name, :include_blank=>true) %></td><tr>
+            </tbody>
+          </table>
+        </div>
+    <% end %>
+  </div>
+
+  <h3>Professional Development</h3>
+  <div>
+    <%= f.fields_for :developments do |t|  %>
+        <div>
+          <table id="table_show_email_acc" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#7A5230" frame="box" width="300">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <tr BGCOLOR="#ffffff"><td><%= "P" + "C Fun Day1".titleize                 %></td><td><%= t.date_select :PC1_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PC1_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PC1_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PC1_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PC1a 	 %>	</td><td><%= t.collection_select(:PC1_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PC1_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "P" + "C Fun Day2".titleize                 %></td><td><%= t.date_select :PC2_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PC2_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PC2_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PC2_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PC2a 	 %>	</td><td><%= t.collection_select(:PC2_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PC2_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#ffffff"><td><%= "P" + "C Fun Day3".titleize                 %></td><td><%= t.date_select :PC3_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PC3_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PC3_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PC3_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PC3a 	 %>	</td><td><%= t.collection_select(:PC3_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PC3_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "P" + "C Fun Day4".titleize                 %></td><td><%= t.date_select :PC4_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PC4_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PC4_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PC4_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PC4a 	 %>	</td><td><%= t.collection_select(:PC4_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PC4_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#ffffff"><td><%= "Principal PC FUN Day1"                     %></td><td><%= t.date_select :P1_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:P1_2,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :P1_3, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:P1_4,    Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :P1a     %>	</td><td><%= t.collection_select(:P1_5,   Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:P1_6,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "Principal PC FUN Day2"                     %></td><td><%= t.date_select :P2_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:P2_2,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :P2_3, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:P2_4,    Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :P2a     %>	</td><td><%= t.collection_select(:P2_5,   Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:P2_6,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#ffffff"><td><%= "Parenting Program Day1"                    %></td><td><%= t.date_select :PP1_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PP1_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PP1_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PP1_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PP1a    %>	</td><td><%= t.collection_select(:PP1_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PP1_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "Parenting Program Day2"                    %></td><td><%= t.date_select :PP2_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PP2_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PP2_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PP2_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PP2a    %>	</td><td><%= t.collection_select(:PP2_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PP2_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#ffffff"><td><%= "Parenting Program Day3"                    %></td><td><%= t.date_select :PP3_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:PP3_2, Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :PP3_3, :start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:PP3_4,   Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :PP3a    %>	</td><td><%= t.collection_select(:PP3_5,  Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:PP3_6, Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "Parenting Program Refresher"               %></td><td><%= t.date_select :Pr_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:Pr_2,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :Pr_3, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:Pr_4,    Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :Pra     %>	</td><td><%= t.collection_select(:Pr_5,   Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:Pr_6,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#ffffff"><td><%= "Friends School"                            %></td><td><%= t.date_select :FS_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:FS_2,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :FS_3, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:FS_4,    Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :FSa     %>	</td><td><%= t.collection_select(:FS_5,   Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:FS_6,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+            <tr BGCOLOR="#cccccc"><td><%= "Creative Arts"                             %></td><td><%= t.date_select :CA_1, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true  %></td><td><%= t.collection_select(:CA_2,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.date_select :CA_3, 	:start_year => 2015, :end_year => 2020, :default => { :year => 2015, :month => 1, :day => 1 }, :order => [:month, :day, :year], :include_blank=>true     %></td><td><%= t.collection_select(:CA_4,    Affirmation.all,  :id,  :name, :include_blank =>true) %></td><td><%= t.text_field :CAa     %>	</td><td><%= t.collection_select(:CA_5,   Affirmation.all,  :id,  :name, :include_blank =>true) %> </td><td><%= t.collection_select(:CA_6,  Affirmation.all,  :id,  :name, :include_blank =>true) %></td>
+
+
+            </tbody>
+          </table>
+        </div>
+    <% end %>
+
+
+
+  </div>
+
+</div>
+
+</body>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+  <% end %>

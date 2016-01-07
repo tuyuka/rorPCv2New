@@ -1,0 +1,48 @@
+<%= form_for(@coach) do |f| %>
+    <% if @coach.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@coach.errors.count, "error") %> prohibited this coach from being saved:</h2>
+
+          <ul>
+            <% @coach.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <hr size="4" noshade color="Grey" width="300" align="left">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <hr size="3" noshade color="Grey" width="300" align="left">
+
+    <table id="table_form_coaches" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#9370db" frame="box" width="300">
+      <thead>
+      <tr>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr bgcolor="cccccc"><td><b><%= f.label :assigned_id ,  		"Coach ID"      %></b></td><td>   <b><b><b><%=f.text_field :assigned_id           %></td><tr>
+      <tr bgcolor="ffffff"><td><b><%= f.label :first_name,      "First Name"    %></b></td><td>   <b><b><b><%=f.text_field :first_name %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= f.label :last_name,       "Last Name"     %></b></td><td>   <b><b><b><%=f.text_field :last_name %></td><tr>
+      <tr bgcolor='ffffff'><td><b><%= f.label :site,      		"Site ID"       %></b></td><td>   <b><b><b><%=f.collection_select(:site,    Site.all,     :school,  :school, :include_blank=>true) %></td><tr>
+      <tr bgcolor="cccccc"><td><b><%= f.label :email,		    "Email"         %></b></td><td>   <b><b><b><%=f.text_field :email %></td><tr>
+      <tr bgcolor="ffffff"><td><b><%= f.label :comments,  		"Comments"      %></b></td><td>   <b><b><b><%=f.text_field :comments          %></td><tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+    <div class="actions">
+      <%= f.submit "Save/Edit" %>
+    </div>
+
+<% end %>
+

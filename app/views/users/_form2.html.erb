@@ -1,0 +1,111 @@
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    var $collapsables = $('.collapsable-section');
+    $collapsables.each(function(i){
+      var $label  = $(this).find('.label').filter(':first');
+      var $fields = $(this).find('.fields').filter(':first');
+      $label.click(function(e){
+        $fields.slideToggle(100);
+      });
+    });
+  });
+</script>
+
+<style type="text/css" rel="stylesheet">
+
+  form {
+    display:block;
+    background: #CCC;
+    border: 1px solid #000;
+  }
+  form .collapsable-section .label {
+    background: #fff;
+    cursor: pointer;
+    font-weight:bold;
+    margin-bottom: 10px;
+  }
+  form .collapsable-section {
+    margin: 10px;
+  }
+  /* General */
+</style>
+
+
+<form>
+  <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <Div>
+        <hr size="3" noshade color="Grey" width="300" align="left">
+        <table id="table_show_leaders" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#9370db" frame="box" width="300">
+          <thead>
+          <tr></tr>
+          </thead>
+          <tbody>
+          <tr bgcolor="ffffff"><td><b><%= f.label :pc_id,  		      "ParentCorps ID"        %></b></td><td>   <b><b><b><%=f.text_field :pc_id             %></td><tr>
+          <tr bgcolor='cccccc'><td><b><%= f.label :first_name,  		  "First Name"            %></b></td><td>   <b><b><b><%=f.text_field :first_name        %></td><tr>
+          <tr bgcolor='ffffff'><td><b><%= f.label :last_name,  		  "Last Name"             %></b></td><td>   <b><b><b><%=f.text_field :last_name         %></td><tr>
+          <tr bgcolor='cccccc'><td><b><%= f.label :title,    		      "Position"              %></b></td><td>   <b><b><b><%=f.collection_select(:title,      Title.all,  :position,  :position, :include_blank=>true) %></td><tr>
+          <tr bgcolor='ffffff'><td><b><%= f.label :title_other_grade,   "Other Teacher Grade"   %></b></td><td>   <b><b><b><%=f.text_field :title_other_grade %></td><tr>
+          <tr bgcolor='cccccc'><td><b><%= f.label :first_year,          "First PC Year"         %></b></td><td>   <b><b><b><%=f.collection_select(:first_year, Cycle.all,   :id,  :cycle, :include_blank=>true) %></td><tr>
+          <tr bgcolor='ffffff'><td><b><%= f.label :cohort,    		  "Cohort"                %></b></td><td>   <b><b><b><%=f.collection_select(:cohort,     Cohort.all,  :id,  :name, :include_blank=>true) %></td><tr>
+          <tr bgcolor='cccccc'><td><b><%= f.label :site,  		      "Site"                  %></b></td><td>   <b><b><b><%=f.collection_select(:site,       Site.all,  :school,  :school, :include_blank=>true) %></td><tr>
+          <tr bgcolor='ffffff'><td><b><%= f.label :borough,    		  "Borough"               %></b></td><td>   <b><b><b><%=f.collection_select(:borough,    Borough.all,  :id,  :name, :include_blank=>true) %></td><tr>
+          <tr bgcolor="cccccc"><td><b><%= f.label :comments,  		  "Comments"              %></b></td><td>   <b><b><b><%=f.text_field :comments          %></td><tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+      <div>
+        <H1>Phone</H1>
+        <%= f.fields_for :phones do |p|  %>
+            <table id="table_show_caregivers" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#339999" frame="box" width="300">
+              <thead>
+              <tr>
+              </tr>
+              </thead>
+              <tbody>
+              <tr bgcolor='cccccc'><td><b><%= p.label :phone_type,  	"Phone Type"    %></b></td><td>   <b><b><b><%==p.collection_select(:phone_type,  PhoneType.all,  :name,  :name, :include_blank=>true) %></td><tr>
+              <tr bgcolor='ffffff'><td><b><%= p.label :phone_number,  	"Number"        %></b></td><td>   <b><b><b><%==p.text_field :phone_number   %></td><tr>
+              <tr bgcolor='cccccc'><td><b><%= p.label :primary,    	    "Primary"       %></b></td><td>   <b><b><b><%==p.collection_select(:primary,  Affirmation.all,  :id,  :name, :include_blank=>true) %></td><tr>
+              <tr bgcolor='ffffff'><td><b><%= p.label :comments,    	"Comments"      %></b></td><td>   <b><b><b><%==p.text_field :comments %></td><tr>
+
+              </tbody>
+            </table>
+            </div>
+        <% end %>
+
+
+        <H1>Email</H1>
+        <%= f.fields_for :emails do |e|  %>
+            <div>
+              <table id="table_show_email_acc" class="display" cellpadding="5" border="1" cellspacing="0" bgcolor="#7A5230" frame="box" width="300">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+                <tr bgcolor='ffffff'><td><b><%= e.label :email_account,  	"Email Address"     %></b></td><td>   <b><b><b><%==e.text_field :email_account   %></td><tr>
+                <tr bgcolor='cccccc'><td><b><%= e.label :primary,    	    "Primary"           %></b></td><td>   <b><b><b><%==e.collection_select(:primary,  Affirmation.all,  :id,  :name, :include_blank=>true) %></td><tr>
+                </tbody>
+              </table>
+            </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+  <% end %>
+</form>

@@ -1,0 +1,309 @@
+<%= form_for(@program_development) do |f| %>
+  <% if @program_development.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@program_development.errors.count, "error") %> prohibited this program_development from being saved:</h2>
+
+      <ul>
+      <% @program_development.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :leader_id %><br>
+    <%= f.number_field :leader_id %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_1 %><br>
+    <%= f.text_field :PCFUNDay1_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_2 %><br>
+    <%= f.number_field :PCFUNDay1_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_3 %><br>
+    <%= f.text_field :PCFUNDay1_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_4 %><br>
+    <%= f.number_field :PCFUNDay1_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_5 %><br>
+    <%= f.number_field :PCFUNDay1_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay1_6 %><br>
+    <%= f.number_field :PCFUNDay1_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_1 %><br>
+    <%= f.text_field :PCFUNDay2_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_2 %><br>
+    <%= f.number_field :PCFUNDay2_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_3 %><br>
+    <%= f.text_field :PCFUNDay2_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_4 %><br>
+    <%= f.number_field :PCFUNDay2_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_5 %><br>
+    <%= f.number_field :PCFUNDay2_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay2_6 %><br>
+    <%= f.number_field :PCFUNDay2_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_1 %><br>
+    <%= f.text_field :PCFUNDay3_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_2 %><br>
+    <%= f.number_field :PCFUNDay3_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_3 %><br>
+    <%= f.text_field :PCFUNDay3_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_4 %><br>
+    <%= f.number_field :PCFUNDay3_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_5 %><br>
+    <%= f.number_field :PCFUNDay3_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay3_6 %><br>
+    <%= f.number_field :PCFUNDay3_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_1 %><br>
+    <%= f.text_field :PCFUNDay4_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_2 %><br>
+    <%= f.number_field :PCFUNDay4_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_3 %><br>
+    <%= f.text_field :PCFUNDay4_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_4 %><br>
+    <%= f.number_field :PCFUNDay4_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_5 %><br>
+    <%= f.number_field :PCFUNDay4_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PCFUNDay4_6 %><br>
+    <%= f.number_field :PCFUNDay4_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_1 %><br>
+    <%= f.text_field :PrincipalPCFUNDay1_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_2 %><br>
+    <%= f.number_field :PrincipalPCFUNDay1_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_3 %><br>
+    <%= f.text_field :PrincipalPCFUNDay1_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_4 %><br>
+    <%= f.number_field :PrincipalPCFUNDay1_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_5 %><br>
+    <%= f.number_field :PrincipalPCFUNDay1_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay1_6 %><br>
+    <%= f.number_field :PrincipalPCFUNDay1_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_1 %><br>
+    <%= f.text_field :PrincipalPCFUNDay2_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_2 %><br>
+    <%= f.number_field :PrincipalPCFUNDay2_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_3 %><br>
+    <%= f.text_field :PrincipalPCFUNDay2_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_4 %><br>
+    <%= f.number_field :PrincipalPCFUNDay2_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_5 %><br>
+    <%= f.number_field :PrincipalPCFUNDay2_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :PrincipalPCFUNDay2_6 %><br>
+    <%= f.number_field :PrincipalPCFUNDay2_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay1_1 %><br>
+    <%= f.text_field :ParentingProgramDay1_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay1_2 %><br>
+    <%= f.number_field :ParentingProgramDay1_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay1_3 %><br>
+    <%= f.text_field :ParentingProgramDay1_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay1_4 %><br>
+    <%= f.number_field :ParentingProgramDay1_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingPramDay1_5 %><br>
+    <%= f.number_field :ParentingPramDay1_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay1_6 %><br>
+    <%= f.number_field :ParentingProgramDay1_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_1 %><br>
+    <%= f.text_field :ParentingProgramDay2_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_2 %><br>
+    <%= f.number_field :ParentingProgramDay2_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_3 %><br>
+    <%= f.text_field :ParentingProgramDay2_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_4 %><br>
+    <%= f.number_field :ParentingProgramDay2_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_5 %><br>
+    <%= f.number_field :ParentingProgramDay2_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay2_6 %><br>
+    <%= f.number_field :ParentingProgramDay2_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_1 %><br>
+    <%= f.text_field :ParentingProgramDay3_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_2 %><br>
+    <%= f.number_field :ParentingProgramDay3_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_3 %><br>
+    <%= f.text_field :ParentingProgramDay3_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_4 %><br>
+    <%= f.number_field :ParentingProgramDay3_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_5 %><br>
+    <%= f.number_field :ParentingProgramDay3_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramDay3_6 %><br>
+    <%= f.number_field :ParentingProgramDay3_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_1 %><br>
+    <%= f.text_field :ParentingProgramRefresher_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_2 %><br>
+    <%= f.number_field :ParentingProgramRefresher_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_3 %><br>
+    <%= f.text_field :ParentingProgramRefresher_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_4 %><br>
+    <%= f.number_field :ParentingProgramRefresher_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_5 %><br>
+    <%= f.number_field :ParentingProgramRefresher_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :ParentingProgramRefresher_6 %><br>
+    <%= f.number_field :ParentingProgramRefresher_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_1 %><br>
+    <%= f.text_field :FriendsSchool_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_2 %><br>
+    <%= f.number_field :FriendsSchool_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_3 %><br>
+    <%= f.text_field :FriendsSchool_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_4 %><br>
+    <%= f.number_field :FriendsSchool_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_5 %><br>
+    <%= f.number_field :FriendsSchool_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :FriendsSchool_6 %><br>
+    <%= f.number_field :FriendsSchool_6 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_1 %><br>
+    <%= f.text_field :CreativeArts_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_2 %><br>
+    <%= f.number_field :CreativeArts_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_3 %><br>
+    <%= f.text_field :CreativeArts_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_4 %><br>
+    <%= f.number_field :CreativeArts_4 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_5 %><br>
+    <%= f.number_field :CreativeArts_5 %>
+  </div>
+  <div class="field">
+    <%= f.label :CreativeArts_6 %><br>
+    <%= f.number_field :CreativeArts_6 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

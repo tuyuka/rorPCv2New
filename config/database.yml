@@ -1,0 +1,11 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: ApZt18p23
+  host: localhost
+
+development:
+  <<: *default
+  database: rorPCv2_development

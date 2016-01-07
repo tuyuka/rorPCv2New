@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>PC Implementation and Tracking 2015</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= image_tag "ParentCorpsStripe2.png"  %>
+
+  <h2>
+    <div id="hmenu">
+      <ul>
+        <li><%= link_to 'Users',    users_path  %></li>
+        <li><%= link_to 'Sites',    sites_path  %></li>
+        <li><%= link_to 'Coaches',  coaches_path  %></li>
+        <li><!%= link_to 'Development',  developments_path %></li>
+        <li><%= link_to "Implementation",  interventions_path  %></li>
+        <li><!%= link_to 'Reports',  reports_path  %></li>
+      </ul>
+    </div>
+  </h2>
+</head>
+
+<body>
+<%= yield %>
+</body>
+
+
+<footer>
+  <%= link_to 'Back', 'javascript:history.go(-1);' %>
+</footer>
+</html>
